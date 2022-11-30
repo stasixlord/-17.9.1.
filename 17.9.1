@@ -1,19 +1,18 @@
-
 array = [int(x) for x in input("Введите числа от 1 до 999 в любом порядке, через пробел: ").split()]
 
-def merge_sort(array):  
-    if len(array) < 2:  
-        return array[:]  
-    else:
-        middle = len(array) // 2  
-        left = merge_sort(array[:middle])  
-        right = merge_sort(array[middle:])  
-        return merge(left, right)  
+def merge_sort(массив): 
+ если len(массив) < 2: 
+ возвращает массив[:] 
+ ещё:
+ средний = len(массив) // 2 
+ left = merge_sort(массив[:средний]) 
+ right = merge_sort(массив[средний:]) 
+ обратное слияние (слева, справа) 
 
 
-def merge(left, right):
-    result = []
-    i, j = 0, 0
+def слияние (слева, справа):
+ результат = []
+ i, j = 0, 0
 
     while i < len(left) and j < len(right):
         if left[i] < right[j]:
@@ -33,33 +32,33 @@ def merge(left, right):
 
     return result
 
-print(merge_sort(array))
+печать(merge_sort(массив))
 
 
-def binary_search(array, element, left, right):
-    if left > right:  
-        return False  
+определить двоичный поиск (массив, элемент, слева, справа):
+ если влево > вправо: 
+ возвращает значение False 
 
-    middle = (right + left) // 2  
-    if array[middle] == element:  
-        return middle  
-    elif element < array[middle]:  
+ средний = (правый + левый) // 2 
+ если массив[средний] == элемент: 
+ возвращение в середину 
+ элемент elif < массив[средний]: 
     
-        return binary_search(array, element, left, middle - 1)
-    else:  
-        return binary_search(array, element, middle + 1, right)
+ возвращает binary_search(массив, элемент, левый, средний - 1)
+ ещё: 
+ возвращает binary_search(массив, элемент, середина + 1, справа)
 
 
-while True:
-    try:
-        element = int(input("Введите число от 1 до 999: "))
-        if element < 0 or element > 999:
-            raise Exception
-        break
-    except ValueError:
-        print("Нужно ввести число!")
-    except Exception:
-        print("Неправильный диапазон!")
+в то время Как True:
+ попробуй:
+ element = int(input("Введите число от 1 до 999: "))
+ если элемент < 0 или элемент > 999:
+ вызвать исключение
+ перерыв
+ кроме ValueError:
+ print("Нужно ввести число!")
+ за исключением исключения:
+ print("Неправильный диапазон!")
 
 
-print(binary_search(array, element, 0,  len(array)))
+print(binary_search(массив, элемент, 0, len(массив)))
